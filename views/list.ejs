@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h1>TODO LIST</h1>
+    </div>
+    <div class="box">
+       <% ejsx.forEach(function(items){ %>
+        <form action="/delete" method="POST">
+            <div class="item">
+                <input type="checkbox" name="checkbox1" value="<%= items._id%>" onchange="this.form.submit()">
+                 <p><%=items.name %></p>
+            </div>
+        </form>
+    <% })%>
+        <form action="/" method="POST">
+            <input type="text" name="ele1" placeholder="Enter the task">
+            <button type="submit">+</button>
+        </form>
+    </div>
+</body>
+
+</html>
